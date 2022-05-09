@@ -6,19 +6,22 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 
 int main (void)
 {
     char input[] = "aabcccccaaa";
-    //printf("%i", sizeof(input)); // returns 12
+    // printf("%i", sizeof(input)); // returns 12
+    // printf("\n\r");
+    // printf("%i", strlen(input)); // returns 11
 
     int counter = 1;
-    for (int i = 0; i < sizeof(input) - 2; i++)
+    for (int i = 0; i < strlen(input) - 1; i++)
     {
         //printf("%i", i);          // print int
         //printf("%c", input[i]);   // print char
 
-        if((input[i] != input[i+1]) || (i == sizeof(input) - 3))
+        if((input[i] != input[i+1]) || (i == strlen(input) - 2))
         {
             printf("%c", input[i]);
             printf("%i", counter);
