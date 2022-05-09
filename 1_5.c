@@ -7,9 +7,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int distance(char string1[], char string2[])
+int isOneEditAway(char string1[], char string2[])
 {
-    //if(strlen(string1) == strlen(string2)) return 0;
     
     //printf("%s", string1);
     
@@ -21,7 +20,7 @@ int distance(char string1[], char string2[])
         //memset(newString, '\0', sizeof(newString));
         strncpy(newString, "", sizeof(newString));
 
-        printf("%s\r\n", newString);
+        //printf("%s\r\n", newString);
 
         int counter = 0;
         for(int j=0; j<strlen(string1); j++)
@@ -33,6 +32,10 @@ int distance(char string1[], char string2[])
         }
         
         printf("%s\r\n", newString);
+        if(strcmp(newString, string2) == 0) 
+            printf("true\r\n");
+        else
+            printf("false\r\n");
     }
 }
 
@@ -41,7 +44,7 @@ int main (void)
     char string1[] = "pale";
     char string2[] = "pae";
 
-    distance(string1, string2);
+    isOneEditAway(string1, string2);
 
     return 0;
 }
