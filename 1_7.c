@@ -28,23 +28,25 @@ int main (void)
     
     int output[3][3];
 
-    // Rotate matrix 90 degrees right
+    // Rotate matrix 90 degrees right:
 
-    // [0, 0] --> [0, 2]
-    // [0, 1] --> [1, 2]
-    // [0, 2] --> [2, 2]
+    // Last output col <-- First input line
+    // [0, 2] <-- [0, 0]
+    // [1, 2] <-- [0, 1]
+    // [2, 2] <-- [0, 2]
 
-    // [0, 0] --> [0, 2]
-    // [1, 0] --> [0, 1]
-    // [2, 0] --> [0, 0]
+    // First output line <-- First input col
+    // [0, 2] <-- [0, 0]
+    // [0, 1] <-- [1, 0]
+    // [0, 0] <-- [2, 0]
 
     for (int line = 0; line < HEIGHT; line++) {
         //int line = 0;
         for (int col = 0; col < WIDTH; col++) {
             //printf("%i%s", input[line][col], ",");
             
-            //output[line][col] = input[col][HEIGHT - 1 - line];
-            output[col][HEIGHT - 1 - line] = input[line][col];
+            output[line][col] = input[col][HEIGHT - 1 - line]; // 90 degrees left
+            //output[col][HEIGHT - 1 - line] = input[line][col]; // 90 degrees right
 
         }
         //printf("%s", "\r\n");
