@@ -11,8 +11,9 @@
 int main (void)
 {
     char input[] = "aabcccccaaa";
-    // printf("%i", sizeof(input)); // returns 12
-    // printf("\n\r");
+    char output[sizeof(input)];
+    // printf("%i", sizeof(input)); // returns 12 (includes the null terminator char)
+    // printf("\r\n");
     // printf("%i", strlen(input)); // returns 11
 
     int counter = 1;
@@ -21,8 +22,18 @@ int main (void)
         //printf("%i", i);          // print int
         //printf("%c", input[i]);   // print char
 
-        if((input[i] != input[i+1]) || (i == strlen(input) - 2))
+        if(i == strlen(input) - 2) // last iteration
         {
+            counter++;
+            printf("%c", input[i]);
+            printf("%i", counter);
+        }
+        
+        if((input[i] != input[i+1]))
+        {
+            //strcat(output, input[i]);
+            output[i] = input[i];
+            
             printf("%c", input[i]);
             printf("%i", counter);
             counter = 1;
@@ -33,8 +44,7 @@ int main (void)
         }
     }
   
-
-    //printf ("Hello world from C\n");
+    printf("%s", output);
 
     return 0;
 }
