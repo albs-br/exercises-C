@@ -18,11 +18,31 @@
             "problemMatcher": [
                 "$gcc"
             ],
+            // "group": {
+            //     "kind": "build",
+            //     "isDefault": true
+            // },
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "detail": "compilador: C:\\msys64\\mingw64\\bin\\g++.exe"
+        },
+        {
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "label": "run exe",
+            "type": "shell",
+            "dependsOn": [
+                "C/C++: g++.exe arquivo de build ativo"
+            ],
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "compilador: C:\\msys64\\mingw64\\bin\\g++.exe"
+            "presentation": {
+                "reveal": "always"
+            }
         }
     ]
 }
