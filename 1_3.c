@@ -8,16 +8,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int main (void)
+const char * URLify(char input[])
 {
-    char input[] =   "Andre Baptista        ";
-    //char input[] = "André%20Baptista%20%20";
-
     for (int i = 0; i < strlen(input); i++)
     {
         if(input[i] == ' ')
         {
-            for (int j = strlen(input)-1; j >= i+3; j--)
+            for (int j = strlen(input)-1; j >= i+3; j--) // iterating backwards
             {
                 input[j] = input[j-2];
             }
@@ -28,7 +25,20 @@ int main (void)
         }
     }
   
-    printf("%s", input);
+    //printf("%s\r\n", input);
+
+    return input;
+}
+
+int main (void)
+{
+    char input1[] =  "Andre Baptista        ";
+    //char input[] = "André%20Baptista%20%20";
+    char input2[] =  " Andre Baptista       ";
+    //char input[] = "%20André%20Baptista%20";
+
+    printf("%s\r\n", URLify(input1));
+    printf("%s\r\n", URLify(input2));
 
     return 0;
 }
