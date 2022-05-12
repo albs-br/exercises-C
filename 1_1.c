@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int IsUnique(char input[])
+int isUnique(char input[])
 {
     for (int i = 0; i < strlen(input); i++)
     {
@@ -25,9 +25,9 @@ int main(void)
     char input_2[] = "the quick brown fox";
     char input_3[] = "the quick brown";
 
-    printf("%i\r\n", IsUnique(input_1));
-    printf("%i\r\n", IsUnique(input_2));
-    printf("%i\r\n", IsUnique(input_3));
+    printf("%i\r\n", isUnique(input_1));
+    printf("%i\r\n", isUnique(input_2));
+    printf("%i\r\n", isUnique(input_3));
 
     return 0;
 }
