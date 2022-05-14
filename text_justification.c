@@ -27,27 +27,34 @@ int main()
     printf("\r\n");
 
 
-    int lineLength = 0;
+    //int lineLength = 0;
     for(int i=0; i<7; i++)
     {
         //printf("%s ", a[i]);
+        //printf("%i\r\n", strlen(output));
 
-        int spaceBefore = (strlen(output) > 0) ? 1 : 0;
+        //strcat(output, a[i]);
 
-        if((lineLength + strlen(a[i]) + spaceBefore) > maxLineLength)
+
+        if((strlen(output) + strlen(a[i])) > maxLineLength)
         {
             printf("%s\r\n", output);
-            printf("spaces left to fill line: %i\r\n", maxLineLength - lineLength);
+            printf("spaces left to fill line: %i\r\n", maxLineLength - strlen(output));
 
             // loop through current line filling the missing spaces on current spaces, left to right
 
-            lineLength = 0;
-            output[0] = '\0';
+            //lineLength = 0;
+            output[0] = '\0'; // empty string
+        }
+        else //if (i < (7 - 1))
+        {
+            strcat(output, " ");
         }
 
-        lineLength += strlen(a[i]) + spaceBefore;
-        if(spaceBefore == 1) strcat(output, " ");
         strcat(output, a[i]);
+
+        //int spaceBefore = (strlen(output) > 0) ? 1 : 0;
+        //lineLength += strlen(a[i]) + spaceBefore;
     }
 
     return 0;
