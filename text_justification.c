@@ -12,7 +12,7 @@ int main()
     a[1] = "justification";
     a[2] = "sample";
     a[3] = "string";
-    a[4] = "more";
+    a[4] = "mor123";
     a[5] = "words";
     a[6] = "here";
     const int maxLineLength = 20;
@@ -27,7 +27,6 @@ int main()
     printf("\r\n");
 
 
-    //int lineLength = 0;
     for(int i=0; i<7; i++)
     {
         //printf("%s ", a[i]);
@@ -36,22 +35,48 @@ int main()
         //strcat(output, a[i]);
 
 
-        if((strlen(output) + strlen(a[i])) > maxLineLength)
+        if((strlen(output) + strlen(a[i])) >= maxLineLength)
         {
             printf("%s\r\n", output);
-            printf("spaces left to fill line: %i\r\n", maxLineLength - strlen(output));
+
+            int spacesLeft = maxLineLength - strlen(output);
+
+            printf("spaces left to fill line: %i\r\n", spacesLeft);
 
             // loop through current line filling the missing spaces on current spaces, left to right
-
-            //lineLength = 0;
+            // while (spacesLeft > 0)
+            // {
+            //     for (int j = 0; j < strlen(output); j++)
+            //     {
+            //         if(spacesLeft > 0)
+            //         {
+            //             if(output[j] == ' ')
+            //             {
+            //                 spacesLeft--;
+            //                 printf("%s", "  "); // two spaces
+            //             }
+            //             else
+            //             {
+            //                 printf("%c", output[j]);
+            //             }
+            //         }
+            //     }
+            // }
+            // printf("\r\n");
+            
             output[0] = '\0'; // empty string
         }
-        else //if (i < (7 - 1))
+        else if (strlen(output) > 0)
         {
             strcat(output, " ");
         }
 
         strcat(output, a[i]);
+
+        if(i == (7 - 1)) // is last word
+        {
+            printf("%s\r\n", output);
+        }
 
         //int spaceBefore = (strlen(output) > 0) ? 1 : 0;
         //lineLength += strlen(a[i]) + spaceBefore;
